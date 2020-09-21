@@ -15,18 +15,23 @@ class ViewController: UIViewController {
     var square: UIView!
     var x: CGFloat = 0
     var y: CGFloat = 0
-    var widthSquare: CGFloat = 8
-    var heightSquare: CGFloat = 8
+
+    let widthSquare: CGFloat = 150
+    let heightSquare: CGFloat = 150
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func drawSquareButton(_ sender: Any) {
+        drawNewSquare()
     }
     
     func generateNewColor() {
         let red = CGFloat.random(in: 0...1)
         let blue = CGFloat.random(in: 0...1)
         let green = CGFloat.random(in: 0...1)
-        square.backgroundColor = UIColor(displayP3Red: red, green: blue, blue: green, alpha: 1)
+        square.backgroundColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
     }
     
     func newSquare(x: CGFloat, y: CGFloat, widthSquare: CGFloat, heightSquare: CGFloat) -> UIView {
@@ -38,26 +43,22 @@ class ViewController: UIViewController {
     func drawNewSquare() {
         fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
         generateNewColor()
-        
-        if square.frame.origin.x < fieldSquareView.frame.width - square.frame.width {
+
+        if square.frame.origin.x + square.frame.width < fieldSquareView.frame.width - square.frame.width {
             fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
-            generateNewColor()
             x += square.frame.width
-            drawNewSquare()
-        } else if square.frame.origin.y < fieldSquareView.frame.height - square.frame.height {
-            fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
             generateNewColor()
+            drawNewSquare()
+        } else if square.frame.origin.y + square.frame.height < fieldSquareView.frame.height - square.frame.height {
+            fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
             x = 0
             y += square.frame.width
+            generateNewColor()
             drawNewSquare()
         } else {
             x = 0
             y = 0
         }
-    }
-    
-    @IBAction func drawSquareButton(_ sender: Any) {
-        drawNewSquare()
     }
     
 }
