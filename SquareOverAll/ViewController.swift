@@ -16,46 +16,41 @@ class ViewController: UIViewController {
     var x: CGFloat = 0
     var y: CGFloat = 0
 
-    let widthSquare: CGFloat = 150
-    let heightSquare: CGFloat = 150
+    let sideOfTheSquare: CGFloat = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func drawSquareButton(_ sender: Any) {
-        drawNewSquare()
+        drawSquare()
     }
     
     func generateNewColor() {
         let red = CGFloat.random(in: 0...1)
         let blue = CGFloat.random(in: 0...1)
         let green = CGFloat.random(in: 0...1)
+        
         square.backgroundColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
     }
     
-    func newSquare(x: CGFloat, y: CGFloat, widthSquare: CGFloat, heightSquare: CGFloat) -> UIView {
+    func drawSquare() {
         square = UIView()
-        square.frame = CGRect(x: x, y: y, width: widthSquare, height: heightSquare)
-        return square
-    }
-    
-    func drawNewSquare() {
-        fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
-        generateNewColor()
-
-        if square.frame.origin.x + square.frame.width < fieldSquareView.frame.width - square.frame.width {
-            fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
-            x += square.frame.width
+        square.frame = CGRect(x: x, y: y, width: sideOfTheSquare, height: sideOfTheSquare)
+        if x + (sideOfTheSquare * 2) < fieldSquareView.frame.width {
+            fieldSquareView.addSubview(square)
+            x += sideOfTheSquare
             generateNewColor()
-            drawNewSquare()
-        } else if square.frame.origin.y + square.frame.height < fieldSquareView.frame.height - square.frame.height {
-            fieldSquareView.addSubview(newSquare(x: x, y: y, widthSquare: widthSquare, heightSquare: heightSquare))
+            drawSquare()
+        } else if y + (sideOfTheSquare * 2) < fieldSquareView.frame.height {
+            y += sideOfTheSquare
             x = 0
-            y += square.frame.width
+            fieldSquareView.addSubview(square)
             generateNewColor()
-            drawNewSquare()
+            drawSquare()
         } else {
+            fieldSquareView.addSubview(square)
+            generateNewColor()
             x = 0
             y = 0
         }
