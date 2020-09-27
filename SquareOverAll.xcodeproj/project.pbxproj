@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7086F8D2520CA0000A810CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7086F8C2520CA0000A810CF /* GameViewController.swift */; };
 		C71C6C752513D5CF00276B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C6C742513D5CF00276B04 /* AppDelegate.swift */; };
 		C71C6C772513D5CF00276B04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C6C762513D5CF00276B04 /* SceneDelegate.swift */; };
 		C71C6C792513D5CF00276B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C6C782513D5CF00276B04 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7086F8C2520CA0000A810CF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C71C6C712513D5CF00276B04 /* SquareOverAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquareOverAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71C6C742513D5CF00276B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C71C6C762513D5CF00276B04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				C71C6C742513D5CF00276B04 /* AppDelegate.swift */,
 				C71C6C762513D5CF00276B04 /* SceneDelegate.swift */,
 				C71C6C782513D5CF00276B04 /* ViewController.swift */,
+				C7086F8C2520CA0000A810CF /* GameViewController.swift */,
 				C71C6C7A2513D5CF00276B04 /* Main.storyboard */,
 				C71C6C7D2513D5D200276B04 /* Assets.xcassets */,
 				C71C6C7F2513D5D200276B04 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7086F8D2520CA0000A810CF /* GameViewController.swift in Sources */,
 				C71C6C792513D5CF00276B04 /* ViewController.swift in Sources */,
 				C71C6C752513D5CF00276B04 /* AppDelegate.swift in Sources */,
 				C71C6C772513D5CF00276B04 /* SceneDelegate.swift in Sources */,
